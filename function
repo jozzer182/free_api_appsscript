@@ -1,0 +1,13 @@
+function doPost(request = {}) {
+  const { parameter, postData: { contents, type } = {} } = request;
+  const { dataReq = {} } = JSON.parse(contents);
+  
+  const response = {
+    status: "ok",
+    data2: dataReq
+  }
+  
+  var output = JSON.stringify(response)
+  
+  return ContentService.createTextOutput(output).setMimeType(ContentService.MimeType.JSON);
+}
